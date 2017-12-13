@@ -1,0 +1,15 @@
+apiVersion: "exp.wheel.jp/v1"
+kind: PostgreSQL
+metadata:
+  name: foodb
+spec:
+  db: foo
+  user: foo
+  password: foodb-password
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: foodb-password
+data:
+  postgresql_password: bXlwYXNzd29yZA==

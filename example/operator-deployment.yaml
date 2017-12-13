@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: postgresql-operator
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: postgresql-operator
+    spec:
+      containers:
+        - name: postgresql-operator
+          image: ktateish/postgresql-operator:latest
+          volumeMounts:
+            - name: backup-volume
+              mountPath: /backup
+      volumes:
+        - name: backup-volume
+          emptyDir: {}

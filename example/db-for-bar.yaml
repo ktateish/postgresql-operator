@@ -1,0 +1,15 @@
+apiVersion: "exp.wheel.jp/v1"
+kind: PostgreSQL
+metadata:
+  name: bardb
+spec:
+  db: bar
+  user: bar
+  password: bardb-password
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bardb-password
+data:
+  postgresql_password: bXliYXJwYXNzd29yZA==
